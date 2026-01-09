@@ -33,7 +33,13 @@ export function BettingPanel({ selectedBet, onSelectBet, onStartJourney }: Betti
 
       <div className="flex justify-center">
         <button
-          onClick={onStartJourney}
+          type="button"
+          onClick={() => {
+            console.log('Start Journey clicked, selectedBet:', selectedBet);
+            if (selectedBet) {
+              onStartJourney();
+            }
+          }}
           disabled={!selectedBet}
           className={`btn-primary-game ${
             !selectedBet ? 'opacity-50 cursor-not-allowed' : ''
