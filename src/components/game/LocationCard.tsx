@@ -47,7 +47,7 @@ export function LocationCard({
       </div>
       
       {/* Decorative particles */}
-      <div className="absolute inset-0 overflow-hidden rounded-xl">
+      <div className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
