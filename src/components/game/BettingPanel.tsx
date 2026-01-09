@@ -16,6 +16,9 @@ export function BettingPanel({ selectedBet, onSelectBet, onStartJourney }: Betti
           The hero starts at the <span className="text-castle font-semibold">🏰 Castle</span>. 
           After 5 turns, where will they end up?
         </p>
+        <p className="text-sm text-muted-foreground/80">
+          Select one of the below positions
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
