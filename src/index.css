@@ -1,96 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 20% 8%;
+    --foreground: 45 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 15% 12%;
+    --card-foreground: 45 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 15% 12%;
+    --popover-foreground: 45 20% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 90% 55%;
+    --primary-foreground: 240 20% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 15% 18%;
+    --secondary-foreground: 45 20% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 12% 20%;
+    --muted-foreground: 240 10% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 70% 45%;
+    --accent-foreground: 240 20% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 45 20% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 15% 25%;
+    --input: 240 15% 20%;
+    --ring: 45 90% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Game-specific colors */
+    --forest: 140 60% 40%;
+    --forest-glow: 140 70% 50%;
+    --castle: 45 90% 55%;
+    --castle-glow: 45 100% 65%;
+    --dungeon: 0 70% 45%;
+    --dungeon-glow: 0 80% 55%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(140 60% 35%), hsl(160 50% 25%));
+    --gradient-castle: linear-gradient(135deg, hsl(45 90% 50%), hsl(35 80% 40%));
+    --gradient-dungeon: linear-gradient(135deg, hsl(0 70% 40%), hsl(350 60% 25%));
+    --gradient-dark: linear-gradient(180deg, hsl(240 20% 10%), hsl(240 25% 5%));
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Shadows */
+    --shadow-forest: 0 0 30px hsl(140 70% 50% / 0.4);
+    --shadow-castle: 0 0 30px hsl(45 100% 65% / 0.4);
+    --shadow-dungeon: 0 0 30px hsl(0 80% 55% / 0.4);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 240 20% 8%;
+    --foreground: 45 20% 95%;
   }
 }
 
@@ -101,5 +69,139 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-dark);
+    min-height: 100vh;
+  }
+
+  .font-pixel {
+    font-family: 'Press Start 2P', cursive;
+  }
+}
+
+@layer components {
+  .location-card {
+    @apply relative overflow-hidden rounded-xl p-6 transition-all duration-500;
+  }
+
+  .location-forest {
+    background: var(--gradient-forest);
+    box-shadow: var(--shadow-forest);
+  }
+
+  .location-castle {
+    background: var(--gradient-castle);
+    box-shadow: var(--shadow-castle);
+  }
+
+  .location-dungeon {
+    background: var(--gradient-dungeon);
+    box-shadow: var(--shadow-dungeon);
+  }
+
+  .location-inactive {
+    @apply opacity-40 scale-95;
+    box-shadow: none;
+  }
+
+  .location-active {
+    @apply scale-105;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .btn-game {
+    @apply font-pixel text-xs px-6 py-4 rounded-lg transition-all duration-300;
+    @apply hover:scale-105 hover:-translate-y-1;
+    @apply active:scale-95;
+  }
+
+  .btn-primary-game {
+    @apply btn-game bg-primary text-primary-foreground;
+    box-shadow: 0 4px 0 hsl(35 80% 35%), 0 6px 20px hsl(45 90% 55% / 0.3);
+  }
+
+  .btn-primary-game:hover {
+    box-shadow: 0 6px 0 hsl(35 80% 35%), 0 10px 30px hsl(45 90% 55% / 0.4);
+  }
+
+  .btn-primary-game:active {
+    box-shadow: 0 2px 0 hsl(35 80% 35%), 0 4px 15px hsl(45 90% 55% / 0.3);
+    transform: translateY(2px) scale(0.98);
+  }
+
+  .dice-roll {
+    animation: dice-shake 0.5s ease-in-out;
+  }
+
+  .step-log {
+    @apply bg-secondary/50 backdrop-blur-sm rounded-lg p-4 border border-border;
+  }
+
+  .matrix-cell {
+    @apply p-3 text-center font-mono text-sm rounded-md transition-all duration-300;
+  }
+
+  .matrix-cell:hover {
+    @apply scale-110 z-10;
+  }
+
+  .chart-bar {
+    @apply transition-all duration-700 ease-out rounded-t-lg;
+  }
+}
+
+@layer utilities {
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.2);
+    }
+  }
+
+  @keyframes dice-shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg) scale(1.1); }
+    50% { transform: rotate(15deg) scale(1.2); }
+    75% { transform: rotate(-10deg) scale(1.1); }
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes celebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    75% { transform: scale(1.1) rotate(-3deg); }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.4s ease-out forwards;
+  }
+
+  .animate-celebrate {
+    animation: celebrate 0.6s ease-in-out;
+  }
+
+  .text-glow-forest {
+    text-shadow: 0 0 20px hsl(var(--forest-glow));
+  }
+
+  .text-glow-castle {
+    text-shadow: 0 0 20px hsl(var(--castle-glow));
+  }
+
+  .text-glow-dungeon {
+    text-shadow: 0 0 20px hsl(var(--dungeon-glow));
   }
 }
